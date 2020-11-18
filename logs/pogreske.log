@@ -1603,3 +1603,143 @@ main.java.hr.java.covidportal.iznimke.BolestIstihSimptoma: Uneseni simptomi su d
 2020-11-12 17:51:26,543 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1134] Unesen je virus: 1
 2020-11-12 17:51:28,079 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1203] Unesen je broj kontaktiranih osoba: 0
 2020-11-18 19:10:24,409 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:260] Unesen je broj županija: 3
+2020-11-18 20:42:31,832 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:205] Unesen je broj županija: 3
+2020-11-18 20:42:37,915 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:259] Unesen je broj stanovnika: 100000
+2020-11-18 20:42:44,063 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:300] Unesen je broj zaraženih stanovnika: 3
+2020-11-18 20:42:53,418 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:259] Unesen je broj stanovnika: 200000
+2020-11-18 20:42:55,277 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:300] Unesen je broj zaraženih stanovnika: 3
+2020-11-18 20:43:01,495 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:259] Unesen je broj stanovnika: 100000
+2020-11-18 20:43:02,676 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:300] Unesen je broj zaraženih stanovnika: 3
+2020-11-18 20:43:05,823 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:366] Unesen je broj simptoma: 1
+2020-11-18 20:43:13,406 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:497] Unesen je broj bolesti: 1
+2020-11-18 20:43:15,666 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:539] Unesen je broj virusa: 0
+2020-11-18 20:43:16,939 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:586] Unesen je Virus: 2
+2020-11-18 20:43:21,249 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:639] Uneseni broj simptoma: 1
+2020-11-18 20:43:22,252 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:723] Odabran je (broj) simptom is postojećih simptoma: 1
+2020-11-18 20:43:24,737 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:894] Unesen je broj osoba: 3
+2020-11-18 20:43:29,233 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:947] Unesena je starost osobe: 44
+2020-11-18 20:43:30,739 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1002] Unesen je odabir županije: 1
+2020-11-18 20:43:35,651 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1074] Unesen je virus: 1
+2020-11-18 20:43:41,119 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:947] Unesena je starost osobe: 45
+2020-11-18 20:43:43,541 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1002] Unesen je odabir županije: 3
+2020-11-18 20:43:44,714 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1074] Unesen je virus: 1
+2020-11-18 20:43:45,615 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1134] Prilikom unosa broja kontaktiranih osoba, unesen je broj izvan raspona unesenog broja osoba: 3
+2020-11-18 20:43:47,684 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1134] Prilikom unosa broja kontaktiranih osoba, unesen je broj izvan raspona unesenog broja osoba: -3
+2020-11-18 20:43:49,057 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1143] Unesen je broj kontaktiranih osoba: 1
+2020-11-18 20:43:49,859 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1212] Unesen je odabir kontaktirane osobe: 1
+2020-11-18 20:43:54,171 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:947] Unesena je starost osobe: 55
+2020-11-18 20:44:00,256 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1002] Unesen je odabir županije: 2
+2020-11-18 20:44:01,375 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1074] Unesen je virus: 1
+2020-11-18 20:44:03,828 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1134] Prilikom unosa broja kontaktiranih osoba, unesen je broj izvan raspona unesenog broja osoba: 66
+2020-11-18 20:44:06,318 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1134] Prilikom unosa broja kontaktiranih osoba, unesen je broj izvan raspona unesenog broja osoba: -525
+2020-11-18 20:44:07,790 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1143] Unesen je broj kontaktiranih osoba: 2
+2020-11-18 20:44:08,708 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1212] Unesen je odabir kontaktirane osobe: 2
+2020-11-18 20:44:09,395 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1231] Prilikom unosa odabira kontaktirane osobe, unesena je prethodno odabrana osoba (duplikat)
+main.java.hr.java.covidportal.iznimke.DuplikatKontaktiraneOsobe: Prilikom unosa odabira kontaktirane osobe, unesena je prethodno odabrana osoba (duplikat)
+	at main.java.hr.java.covidportal.main.Glavna.provjeraDuplikataKontaktiranihOsoba(Glavna.java:1279)
+	at main.java.hr.java.covidportal.main.Glavna.unosOsoba(Glavna.java:1208)
+	at main.java.hr.java.covidportal.main.Glavna.main(Glavna.java:58)
+2020-11-18 20:44:10,367 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1212] Unesen je odabir kontaktirane osobe: 1
+2020-11-18 21:49:39,955 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:215] Unesen je broj županija: 3
+2020-11-18 21:50:03,593 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:278] Prilikom unosa broja stanovnika je došlo do pogreške. Unesen je String koji se ne može parsirati!
+java.util.InputMismatchException: null
+	at java.base/java.util.Scanner.throwFor(Scanner.java:939)
+	at java.base/java.util.Scanner.next(Scanner.java:1594)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2258)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2212)
+	at main.java.hr.java.covidportal.main.Glavna.unosZupanija(Glavna.java:255)
+	at main.java.hr.java.covidportal.main.Glavna.main(Glavna.java:45)
+2020-11-18 21:50:10,000 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:269] Unesen je broj stanovnika: 1000000
+2020-11-18 21:50:13,175 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:310] Unesen je broj zaraženih stanovnika: 3
+2020-11-18 21:50:19,333 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:269] Unesen je broj stanovnika: 100000
+2020-11-18 21:50:20,544 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:310] Unesen je broj zaraženih stanovnika: 3
+2020-11-18 21:50:27,835 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:269] Unesen je broj stanovnika: 200000
+2020-11-18 21:50:29,702 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:310] Unesen je broj zaraženih stanovnika: 3
+2020-11-18 21:50:33,645 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:376] Unesen je broj simptoma: 3
+2020-11-18 21:50:56,243 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:507] Unesen je broj bolesti: 2
+2020-11-18 21:50:56,894 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:549] Unesen je broj virusa: 2
+2020-11-18 21:51:01,662 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:596] Unesena je  Bolest: 1
+2020-11-18 21:51:06,259 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:649] Uneseni broj simptoma: 1
+2020-11-18 21:51:09,793 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:733] Odabran je (broj) simptom is postojećih simptoma: 3
+2020-11-18 21:51:15,039 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:596] Unesen je Virus: 2
+2020-11-18 21:51:26,846 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:649] Uneseni broj simptoma: 1
+2020-11-18 21:51:29,494 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:733] Odabran je (broj) simptom is postojećih simptoma: 3
+2020-11-18 21:51:29,494 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:765] Uneseni simptomi su duplikati iz prethodno unesenih bolesti!
+main.java.hr.java.covidportal.iznimke.BolestIstihSimptoma: Uneseni simptomi su duplikati iz prethodno unesenih bolesti!
+	at main.java.hr.java.covidportal.main.Glavna.provjeraBolestiIstihSimptoma(Glavna.java:806)
+	at main.java.hr.java.covidportal.main.Glavna.unosBolesti(Glavna.java:759)
+	at main.java.hr.java.covidportal.main.Glavna.main(Glavna.java:53)
+2020-11-18 21:51:34,532 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:649] Uneseni broj simptoma: 1
+2020-11-18 21:51:36,465 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:733] Odabran je (broj) simptom is postojećih simptoma: 2
+2020-11-18 21:51:40,292 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:596] Unesen je Virus: 2
+2020-11-18 21:51:44,298 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:649] Uneseni broj simptoma: 2
+2020-11-18 21:51:45,683 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:733] Odabran je (broj) simptom is postojećih simptoma: 2
+2020-11-18 21:51:51,630 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:733] Odabran je (broj) simptom is postojećih simptoma: 1
+2020-11-18 21:51:53,140 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:596] Unesen je Virus: 2
+2020-11-18 21:52:00,623 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:649] Uneseni broj simptoma: 2
+2020-11-18 21:52:02,625 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:733] Odabran je (broj) simptom is postojećih simptoma: 1
+2020-11-18 21:52:03,446 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:733] Odabran je (broj) simptom is postojećih simptoma: 3
+2020-11-18 21:52:18,368 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:904] Unesen je broj osoba: 4
+2020-11-18 21:52:24,363 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:957] Unesena je starost osobe: 88
+2020-11-18 21:52:30,310 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1012] Unesen je odabir županije: 2
+2020-11-18 21:52:34,037 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1084] Unesen je virus: 4
+2020-11-18 21:52:46,377 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:957] Unesena je starost osobe: 77
+2020-11-18 21:52:48,177 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1012] Unesen je odabir županije: 1
+2020-11-18 21:52:52,344 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1084] Unesen je virus: 2
+2020-11-18 21:52:55,063 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1144] Prilikom unosa broja kontaktiranih osoba, unesen je broj izvan raspona unesenog broja osoba: 2
+2020-11-18 21:52:59,952 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1153] Unesen je broj kontaktiranih osoba: 1
+2020-11-18 21:53:02,262 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1222] Unesen je odabir kontaktirane osobe: 1
+2020-11-18 21:53:18,466 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:957] Unesena je starost osobe: 44
+2020-11-18 21:53:22,385 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1012] Unesen je odabir županije: 3
+2020-11-18 21:53:27,778 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1084] Unesen je virus: 3
+2020-11-18 21:53:31,400 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1144] Prilikom unosa broja kontaktiranih osoba, unesen je broj izvan raspona unesenog broja osoba: 3
+2020-11-18 21:53:33,354 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1144] Prilikom unosa broja kontaktiranih osoba, unesen je broj izvan raspona unesenog broja osoba: -5
+2020-11-18 21:53:34,472 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1153] Unesen je broj kontaktiranih osoba: 2
+2020-11-18 21:53:36,142 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1222] Unesen je odabir kontaktirane osobe: 2
+2020-11-18 21:53:36,949 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1241] Prilikom unosa odabira kontaktirane osobe, unesena je prethodno odabrana osoba (duplikat)
+main.java.hr.java.covidportal.iznimke.DuplikatKontaktiraneOsobe: Prilikom unosa odabira kontaktirane osobe, unesena je prethodno odabrana osoba (duplikat)
+	at main.java.hr.java.covidportal.main.Glavna.provjeraDuplikataKontaktiranihOsoba(Glavna.java:1289)
+	at main.java.hr.java.covidportal.main.Glavna.unosOsoba(Glavna.java:1218)
+	at main.java.hr.java.covidportal.main.Glavna.main(Glavna.java:57)
+2020-11-18 21:53:37,944 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1222] Unesen je odabir kontaktirane osobe: 1
+2020-11-18 21:53:45,557 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:957] Unesena je starost osobe: 25
+2020-11-18 21:53:47,924 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1012] Unesen je odabir županije: 2
+2020-11-18 21:53:57,014 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1084] Unesena je bolest: 1
+2020-11-18 21:54:16,460 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1144] Prilikom unosa broja kontaktiranih osoba, unesen je broj izvan raspona unesenog broja osoba: -5
+2020-11-18 21:54:19,598 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1153] Unesen je broj kontaktiranih osoba: 3
+2020-11-18 21:54:21,997 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1222] Unesen je odabir kontaktirane osobe: 1
+2020-11-18 21:54:22,899 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1241] Prilikom unosa odabira kontaktirane osobe, unesena je prethodno odabrana osoba (duplikat)
+main.java.hr.java.covidportal.iznimke.DuplikatKontaktiraneOsobe: Prilikom unosa odabira kontaktirane osobe, unesena je prethodno odabrana osoba (duplikat)
+	at main.java.hr.java.covidportal.main.Glavna.provjeraDuplikataKontaktiranihOsoba(Glavna.java:1289)
+	at main.java.hr.java.covidportal.main.Glavna.unosOsoba(Glavna.java:1218)
+	at main.java.hr.java.covidportal.main.Glavna.main(Glavna.java:57)
+2020-11-18 21:54:24,198 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1222] Unesen je odabir kontaktirane osobe: 2
+2020-11-18 21:54:24,940 ERROR [main] m.j.h.j.c.m.Glavna [Glavna.java:1241] Prilikom unosa odabira kontaktirane osobe, unesena je prethodno odabrana osoba (duplikat)
+main.java.hr.java.covidportal.iznimke.DuplikatKontaktiraneOsobe: Prilikom unosa odabira kontaktirane osobe, unesena je prethodno odabrana osoba (duplikat)
+	at main.java.hr.java.covidportal.main.Glavna.provjeraDuplikataKontaktiranihOsoba(Glavna.java:1289)
+	at main.java.hr.java.covidportal.main.Glavna.unosOsoba(Glavna.java:1218)
+	at main.java.hr.java.covidportal.main.Glavna.main(Glavna.java:57)
+2020-11-18 21:54:26,094 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1222] Unesen je odabir kontaktirane osobe: 3
+2020-11-18 22:11:20,800 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:216] Unesen je broj županija: 1
+2020-11-18 22:11:26,525 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:270] Unesen je broj stanovnika: 100000000
+2020-11-18 22:11:27,698 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:311] Unesen je broj zaraženih stanovnika: 1
+2020-11-18 22:11:29,874 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:377] Unesen je broj simptoma: 1
+2020-11-18 22:11:36,602 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:508] Unesen je broj bolesti: 1
+2020-11-18 22:11:38,421 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:550] Unesen je broj virusa: 0
+2020-11-18 22:11:40,090 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:597] Unesen je Virus: 2
+2020-11-18 22:11:44,194 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:650] Uneseni broj simptoma: 1
+2020-11-18 22:11:44,885 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:734] Odabran je (broj) simptom is postojećih simptoma: 1
+2020-11-18 22:11:51,203 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:905] Unesen je broj osoba: 3
+2020-11-18 22:11:55,826 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:958] Unesena je starost osobe: 3
+2020-11-18 22:11:56,882 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1013] Unesen je odabir županije: 1
+2020-11-18 22:11:58,442 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1085] Unesen je virus: 1
+2020-11-18 22:12:02,409 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:958] Unesena je starost osobe: 4
+2020-11-18 22:12:03,546 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1013] Unesen je odabir županije: 1
+2020-11-18 22:12:04,596 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1085] Unesen je virus: 1
+2020-11-18 22:12:10,155 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1154] Unesen je broj kontaktiranih osoba: 1
+2020-11-18 22:12:11,034 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1223] Unesen je odabir kontaktirane osobe: 1
+2020-11-18 22:12:15,715 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:958] Unesena je starost osobe: 3
+2020-11-18 22:12:16,730 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1013] Unesen je odabir županije: 1
+2020-11-18 22:12:17,627 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1085] Unesen je virus: 1
+2020-11-18 22:12:19,039 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1154] Unesen je broj kontaktiranih osoba: 1
+2020-11-18 22:12:20,968 INFO [main] m.j.h.j.c.m.Glavna [Glavna.java:1223] Unesen je odabir kontaktirane osobe: 1

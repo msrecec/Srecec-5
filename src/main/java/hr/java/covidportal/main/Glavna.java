@@ -1,6 +1,7 @@
 package main.java.hr.java.covidportal.main;
 
 import main.java.hr.java.covidportal.enumeracija.VrijednostSimptoma;
+import main.java.hr.java.covidportal.genericsi.KlinikaZaInfektivneBolesti;
 import main.java.hr.java.covidportal.iznimke.BolestIstihSimptoma;
 import main.java.hr.java.covidportal.iznimke.DuplikatKontaktiraneOsobe;
 import main.java.hr.java.covidportal.model.*;
@@ -10,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Služi za unos Županija, Simptoma, Bolesti, Osoba i služi za ispis Osoba
@@ -38,8 +40,8 @@ public class Glavna {
         Set<Simptom> simptomi = new HashSet<>();
         Set<Bolest> bolesti = new HashSet<>();
         List<Osoba> osobe = new ArrayList<>();
-        Map<Bolest, List<Osoba>> OsobeZarazeneVirusima = new HashMap<>();
-        Map<String,List<Osoba>> grupeIstihImena = new HashMap<>();
+        Map<Bolest, List<Osoba>> osobeZarazeneVirusima = new HashMap<>();
+        KlinikaZaInfektivneBolesti<Virus, Osoba> klinika;
 
         // Unos Zupanija
 
@@ -57,35 +59,29 @@ public class Glavna {
 
         unosOsoba(input, zupanije, bolesti, osobe);
 
-        // Zadatak 1
-
-        osobe.stream()
-                .sorted(((Comparator
-                        .comparing(Osoba::getPrezime)
-                        .thenComparing(Osoba::getKorisnickoIme))))
-                .forEach(System.out::println);
-
-        // Zadatak 2
-
-        System.out.println(osobe.stream()
-                .min(Comparator
-                        .comparing(Osoba::getIme)
-                        .thenComparing(Osoba::getPrezime)));
-        System.out.println(osobe.stream()
-                .max(Comparator
-                        .comparing(Osoba::getPrezime)
-                        .thenComparing(Osoba::getIme)));
-
-        // Zadatak 3
-
-        populacijaMapeGrupeIstihImena(grupeIstihImena, osobe);
-
-        ispisMapeGrupeIstihImena(grupeIstihImena);
+//        // Zadatak 1
+//
+//        osobe.stream()
+//                .sorted(((Comparator
+//                        .comparing(Osoba::getPrezime)
+//                        .thenComparing(Osoba::getKorisnickoIme))))
+//                .forEach(System.out::println);
+//
+//        // Zadatak 2
+//
+//        System.out.println(osobe.stream()
+//                .min(Comparator
+//                        .comparing(Osoba::getIme)
+//                        .thenComparing(Osoba::getPrezime)));
+//        System.out.println(osobe.stream()
+//                .max(Comparator
+//                        .comparing(Osoba::getPrezime)
+//                        .thenComparing(Osoba::getIme)));
 
 
         // Populacija Mape OsobeZarazeneVirusima
 
-        populacijaMapeOsobeZarazeneVirusima(osobe, OsobeZarazeneVirusima);
+        populacijaMapeOsobeZarazeneVirusima(osobe, osobeZarazeneVirusima);
 
         // Ispis osoba
 
@@ -93,13 +89,49 @@ public class Glavna {
 
         // Ispis Virusa/Bolesti i osoba koje su njima zaražene
 
-        ispisVirusaIOsobaZarazenihVirusima(OsobeZarazeneVirusima);
+        ispisVirusaIOsobaZarazenihVirusima(osobeZarazeneVirusima);
 
         // Ispis županije sa najviše zaraženih
 
         ispisZupanijeSaNajviseZarazenih(zupanije);
 
+        // Zadatak 2 - instanciranje klinike
+
+        klinika = new KlinikaZaInfektivneBolesti(
+        osobe
+            .stream()
+            .filter(el -> el.getZarazenBolescu() instanceof Virus)
+            .collect(Collectors.toList()),
+        bolesti
+            .stream()
+            .filter(el -> el instanceof Virus)
+            .collect(Collectors.toList())
+        );
+
+
+        // Zadatak 3
+
+        klinika
+            .getUneseniVirusi()
+            .stream()
+            .sorted((el1, el2) -> el2.getNaziv().compareTo(el1.getNaziv()))
+            .forEach(System.out::println);
+
+
+//        // Silazni ispis virusa - Zadatak 3
+//
+//        osobe
+//            .stream()
+//            .filter(el -> el.getZarazenBolescu() instanceof Virus)
+//            .map(el-> el.getZarazenBolescu())
+//            .sorted((el1, el2) -> el2.getNaziv().compareTo(el1.getNaziv()))
+//            .forEach(System.out::println);
+
     }
+
+//    private static <T extends Virus> void sortirajViruseIIspisi(T virus) {
+//
+//    }
 
     /**
      * Ispisuje županiju sa najvećim postotkom zaraženih
@@ -165,55 +197,6 @@ public class Glavna {
             }
             zarazeneOsobe.add(osoba);
             osobeZarazeneVirusima.put(osoba.getZarazenBolescu(), zarazeneOsobe);
-        }
-    }
-
-    /**
-     * Popunjava mapu grupeIstihImena sa grupama osoba sa istim imenima kojima su zarazene
-     *
-     * @param osobe                 unesene osobe
-     * @param grupeIstihImena konacna mapa
-     */
-
-    private static void populacijaMapeGrupeIstihImena(Map<String,List<Osoba>> grupeIstihImena, List<Osoba> osobe) {
-
-        for (Osoba osoba : osobe) {
-
-            List<Osoba> grupaOsoba;
-
-            if (grupeIstihImena.containsKey(osoba.getIme())) {
-
-                grupaOsoba = grupeIstihImena.get(osoba.getIme());
-
-            } else {
-                grupaOsoba = new ArrayList<>();
-
-            }
-            grupaOsoba.add(osoba);
-            grupeIstihImena.put(osoba.getIme(), grupaOsoba);
-        }
-    }
-
-    /**
-     * Ispisuje Bolesti/Viruse i osobe koje ih imaju
-     *
-     * @param grupeIstihImena mapa osoba i virusa
-     */
-
-
-    private static void ispisMapeGrupeIstihImena(Map<String,List<Osoba>> grupeIstihImena) {
-        for (String ime : grupeIstihImena.keySet()) {
-
-            System.out.println("U grupi sa imenom: " + ime);
-
-            if (grupeIstihImena.get(ime).size() > 1) {
-                for (Osoba osoba : grupeIstihImena.get(ime)) {
-                    System.out.print(osoba.getIme() + " " + osoba.getPrezime() + ", ");
-                }
-                System.out.print("\n");
-            } else if (grupeIstihImena.get(ime).size() == 1) {
-                System.out.println(grupeIstihImena.get(ime).get(0).getIme() + " " + grupeIstihImena.get(ime).get(0).getPrezime());
-            }
         }
     }
 
@@ -918,7 +901,7 @@ public class Glavna {
         List<Osoba> odabraneUneseneKontaktiraneOsobe = new ArrayList<>();
         Osoba odabranaUnesenaKontaktiranaOsoba = null;
         int brojKontaktiranihOsoba = 0;
-        String ime, prezime, korisnickoIme;
+        String ime, prezime;
         Integer starost = 0;
         Zupanija zupanija = null;
         Bolest zarazenBolescu = null, odabranaUnesenaBolest = null;
@@ -977,11 +960,6 @@ public class Glavna {
 
             System.out.printf("Unesite prezime %d. osobe: ", i + 1);
             prezime = input.nextLine();
-
-            // Unos korisnickog imena
-
-            System.out.printf("Unesite korisnicko ime %d. osobe: ", i + 1);
-            korisnickoIme = input.nextLine();
 
             // Unos starosti i validacija unosa
 
@@ -1308,10 +1286,10 @@ public class Glavna {
             // Spremanje osoba u polje osoba
 
             if (i == 0) {
-                osobe.add(new Osoba.Builder(ime).prezime(prezime).korisnickoIme(korisnickoIme).starost(starost).zupanija(zupanija)
+                osobe.add(new Osoba.Builder(ime).prezime(prezime).starost(starost).zupanija(zupanija)
                         .zarazenBolescu(zarazenBolescu).build());
             } else {
-                osobe.add(new Osoba.Builder(ime).prezime(prezime).korisnickoIme(korisnickoIme).starost(starost).zupanija(zupanija)
+                osobe.add(new Osoba.Builder(ime).prezime(prezime).starost(starost).zupanija(zupanija)
                         .zarazenBolescu(zarazenBolescu).kontaktiraneOsobe(kontaktiraneOsobe).build());
             }
         }

@@ -24,7 +24,7 @@ public class Osoba {
      * @version 1.0
      */
     public static class Builder {
-        private String ime, prezime, korisnickoIme;
+        private String ime, prezime;
         private Integer starost;
         private Zupanija zupanija;
         private Bolest zarazenBolescu;
@@ -49,17 +49,6 @@ public class Osoba {
          */
         public Builder prezime(String prezime) {
             this.prezime = prezime;
-            return this;
-        }
-        /**
-         * Služi za instanciranje objekta klase <code>class Builder</code>
-         * Vraća samu instancu
-         *
-         * @param korisnickoIme korisnickoIme osobe
-         * @return
-         */
-        public Builder korisnickoIme(String korisnickoIme) {
-            this.korisnickoIme = korisnickoIme;
             return this;
         }
 
@@ -126,7 +115,6 @@ public class Osoba {
             Osoba osoba = new Osoba();
             osoba.ime = this.ime;
             osoba.prezime = this.prezime;
-            osoba.korisnickoIme = this.korisnickoIme;
             osoba.starost = this.starost;
             osoba.zupanija = this.zupanija;
             osoba.zarazenBolescu = this.zarazenBolescu;
@@ -149,7 +137,7 @@ public class Osoba {
 
     // Class Fields
 
-    private String ime, prezime, korisnickoIme;
+    private String ime, prezime;
     private Integer starost;
     private Zupanija zupanija;
     private Bolest zarazenBolescu;
@@ -188,7 +176,6 @@ public class Osoba {
 
 
         return "Ime i prezime: " + ime + " " + prezime + "\n" +
-                "Korisnicko ime: " + korisnickoIme + "\n" +
                 "Starost: " + starost + "\n" +
                 "Županija prebivališta: " + zupanija.getNaziv() + "\n" +
                 "Zaražen bolešću: " + zarazenBolescu.getNaziv() + "\n" +
@@ -211,7 +198,6 @@ public class Osoba {
         Osoba osoba = (Osoba) o;
         return Objects.equals(getIme(), osoba.getIme()) &&
                 Objects.equals(getPrezime(), osoba.getPrezime()) &&
-                Objects.equals(getKorisnickoIme(), osoba.getKorisnickoIme()) &&
                 Objects.equals(getStarost(), osoba.getStarost()) &&
                 Objects.equals(getZupanija(), osoba.getZupanija()) &&
                 Objects.equals(getZarazenBolescu(), osoba.getZarazenBolescu()) &&
@@ -226,7 +212,7 @@ public class Osoba {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIme(), getPrezime(), getKorisnickoIme(), getStarost(), getZupanija(), getZarazenBolescu(), getKontaktiraneOsobe());
+        return Objects.hash(getIme(), getPrezime(), getStarost(), getZupanija(), getZarazenBolescu(), getKontaktiraneOsobe());
     }
 
 
@@ -270,27 +256,6 @@ public class Osoba {
 
     public void setPrezime(String prezime) {
         this.prezime = prezime;
-    }
-
-    /**
-     * Vraća korisnickoIme osobe
-     *
-     * @return ime
-     */
-
-    public String getKorisnickoIme() {
-        return korisnickoIme;
-    }
-
-
-    /**
-     * Postavlja ime osobe
-     *
-     * @param korisnickoIme
-     */
-
-    public void setKorisnickoIme(String korisnickoIme) {
-        this.korisnickoIme = korisnickoIme;
     }
 
     /**

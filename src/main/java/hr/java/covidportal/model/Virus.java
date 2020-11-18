@@ -62,4 +62,8 @@ public class Virus extends Bolest implements Zarazno {
         osoba.setZarazenBolescu(new Virus(this.getNaziv(), this.getSimptomi()));
     }
 
+    @Override
+    public String toString() {
+        return "Virus: " + super.getNaziv();
+    }
 }
