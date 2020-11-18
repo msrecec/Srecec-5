@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -111,11 +112,61 @@ public class Glavna {
 
         // Zadatak 3
 
-        klinika
+
+        // Sa lambda izrazima
+
+        Instant start1 = Instant.now();
+        List<Virus> sortiraniVirusi1 = klinika
             .getUneseniVirusi()
             .stream()
-            .sorted((el1, el2) -> el2.getNaziv().compareTo(el1.getNaziv()))
-            .forEach(System.out::println);
+            .sorted(Comparator.comparing(Virus::getNaziv).reversed())
+            .collect(Collectors.toList());
+        Instant end1 = Instant.now();
+
+////         Moguce rjesenje sortiranja bez lambdi ?
+//
+//        List<Virus> sortiraniVirusi2 = klinika
+//                .getUneseniVirusi()
+//                .stream()
+//                .sorted(
+//                        new Comparator<Virus>() {
+//                            @Override
+//                            public int compare(Virus v1, Virus v2) {
+//                                return v2.getNaziv().compareTo(v1.getNaziv());
+//                            }
+//                        }
+//                )
+//                .collect(Collectors.toList());
+
+        List<Virus> sortiraniVirusi2 = klinika.getUneseniVirusi().stream().collect(Collectors.toList());
+
+        // Lista bez lambda izraza ?
+
+        Instant start2 = Instant.now();
+        Collections.sort(sortiraniVirusi2, new Comparator<Virus>() {
+            @Override
+            public int compare(Virus v1, Virus v2) {
+                return v2.getNaziv().compareTo(v1.getNaziv());
+            }
+        });
+        Instant end2 = Instant.now();
+
+//        sortiraniVirusi1.stream().forEach(System.out::println);
+//        sortiraniVirusi2.stream().forEach(System.out::println);
+
+//        // Druga mogucnost rjesavanja 3. zadatka
+//
+//        klinika
+//                .getUneseniVirusi()
+//                .stream()
+//                .sorted((el1, el2) -> el2.getNaziv().compareTo(el1.getNaziv()))
+//                .forEach(System.out::println);
+
+
+
+        // Zadatak 4
+
+
 
 
 //        // Silazni ispis virusa - Zadatak 3
