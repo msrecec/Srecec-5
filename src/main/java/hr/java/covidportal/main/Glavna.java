@@ -8,8 +8,10 @@ import main.java.hr.java.covidportal.model.*;
 import main.java.hr.java.covidportal.sort.CovidSorter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.ls.LSOutput;
 
 import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -43,6 +45,15 @@ public class Glavna {
         List<Osoba> osobe = new ArrayList<>();
         Map<Bolest, List<Osoba>> osobeZarazeneVirusima = new HashMap<>();
         KlinikaZaInfektivneBolesti<Virus, Osoba> klinika;
+
+        Optional.ofNullable(null).ifPresentOrElse((el) -> System.out.println("Lista" + el + "nije prazna"), () -> System.out.println("Lista je prazna"));
+
+        Optional<String> a = Optional.of("a");
+        System.out.println(a.get());
+        Optional emptyOptional= Optional.empty();
+        System.out.println(emptyOptional);
+        Optional alsoEmpty= Optional.ofNullable(null);
+        System.out.println(alsoEmpty);
 
         // Unos Zupanija
 
@@ -96,16 +107,33 @@ public class Glavna {
 
         ispisZupanijeSaNajviseZarazenih(zupanije);
 
+        // Izvedba pete laboratorijske vjezbe
+
+        izvedbaPetogLabosa(bolesti, osobe);
+
+    }
+
+    // Metoda izvedbe pete laboratorijske vjezbe
+
+    /**
+     * Izvodi sve zadatke navedene u petoj laboratorijskoj vjezbi
+     *
+     * @param bolesti unesene bolesti
+     * @param osobe uneseni ljudi oboljeli od bolesti
+     */
+
+    private static void izvedbaPetogLabosa(Set<Bolest> bolesti, List<Osoba> osobe) {
+        KlinikaZaInfektivneBolesti<Virus, Osoba> klinika;
         // Zadatak 2 - instanciranje klinike
 
         klinika = new KlinikaZaInfektivneBolesti(
+        bolesti
+                .stream()
+                .filter(el -> el instanceof Virus)
+                .collect(Collectors.toList()),
         osobe
             .stream()
             .filter(el -> el.getZarazenBolescu() instanceof Virus)
-            .collect(Collectors.toList()),
-        bolesti
-            .stream()
-            .filter(el -> el instanceof Virus)
             .collect(Collectors.toList())
         );
 
@@ -123,24 +151,9 @@ public class Glavna {
             .collect(Collectors.toList());
         Instant end1 = Instant.now();
 
-////         Moguce rjesenje sortiranja bez lambdi ?
-//
-//        List<Virus> sortiraniVirusi2 = klinika
-//                .getUneseniVirusi()
-//                .stream()
-//                .sorted(
-//                        new Comparator<Virus>() {
-//                            @Override
-//                            public int compare(Virus v1, Virus v2) {
-//                                return v2.getNaziv().compareTo(v1.getNaziv());
-//                            }
-//                        }
-//                )
-//                .collect(Collectors.toList());
-
         // Zadatak 4
 
-        List<Virus> sortiraniVirusi2 = klinika.getUneseniVirusi().stream().collect(Collectors.toList());
+        List<Virus> sortiraniVirusi2 = new ArrayList<>(klinika.getUneseniVirusi());
 
         // Lista bez lambda izraza ?
 
@@ -153,44 +166,58 @@ public class Glavna {
         });
         Instant end2 = Instant.now();
 
+        System.out.println("Sortiranje objekata koristenjem lambdi traje "
+                + Duration.between(start1,end1)
+                + " milisekundi, a bez lambdi traje "
+                + Duration.between(start2,end2)
+                + " milisekundi");
+
         // Zadatak 5
 
         String nekoPrezime = "ić";
 
-        Optional<List<Osoba>> testOsoba = Optional.of(osobe.stream().filter(el->el.getPrezime().contains(nekoPrezime)).collect(Collectors.toList()));
+        System.out.println("Osobe cije prezime sadrzi \"" + nekoPrezime + "\" su slijedece: ");
+
+        // Full hacky sa ovim ternarnim operatorom no nakon diskusije sa kolegama uistinu ne znam kako drugacije, jer lista i da je prazna nikako nece biti null vrijednost
+        // tako da sam namjerno isforsirao null da se mogu posluziti sa ifPresentOrElse metodom od Optional klase jer ovo je tehnicki lambda no full cudna lol :D
+        // Mogao sam i bez lambdi, no bojao sam se da ako ne koristim iskljucivo lambde (jer je tako navedeno u zadatku) nego if else sa usporedbom Optional tipa da ce
+        // mi priprema biti odbacena
+
+        Optional.ofNullable(
+                osobe
+                    .stream()
+                    .filter(el->el.getPrezime().contains(nekoPrezime))
+                    .collect(Collectors.toList()).isEmpty() ?
+                        null :
+                        osobe
+                            .stream()
+                            .filter(el->el.getPrezime().contains(nekoPrezime))
+                            .collect(Collectors.toList())
+        ).ifPresentOrElse(
+                el -> el.stream().map(ele -> ele.getIme() + " " + ele.getPrezime()).forEach(System.out::println),
+                () -> System.out.println("Lista je prazna")
+        );
+
+//        // Ovo bi bio drugi nacin rjesavanja ovakvog problema, no ne koristi lambde u potpunosti
+//
+//        Optional<List<Osoba>> nekaOsoba = Optional.of(osobe.stream().filter(el->el.getPrezime().contains(nekoPrezime)).collect(Collectors.toList()));
+//
+//        if (nekaOsoba.get().isEmpty()) {
+//             System.out.println("Lista osoba je prazna");
+//        } else {
+//            nekaOsoba.get().stream().map(ele -> ele.getIme() + " " + ele.getPrezime()).forEach(System.out::println);
+//        }
+
+//        nekaOsoba.stream().map(el->el.getIme()).forEach(System.out::println);
 
         // Zadatak 6
 
-
-
-
-//        sortiraniVirusi1.stream().forEach(System.out::println);
-//        sortiraniVirusi2.stream().forEach(System.out::println);
-
-//        // Druga mogucnost rjesavanja 3. zadatka
-//
-//        klinika
-//                .getUneseniVirusi()
-//                .stream()
-//                .sorted((el1, el2) -> el2.getNaziv().compareTo(el1.getNaziv()))
-//                .forEach(System.out::println);
-
-
-
-//        // Silazni ispis virusa - Zadatak 3
-//
-//        osobe
-//            .stream()
-//            .filter(el -> el.getZarazenBolescu() instanceof Virus)
-//            .map(el-> el.getZarazenBolescu())
-//            .sorted((el1, el2) -> el2.getNaziv().compareTo(el1.getNaziv()))
-//            .forEach(System.out::println);
-
+        bolesti
+            .stream()
+            .map(el->el.getNaziv()+" broj simptoma: "+el.getSimptomi().size())
+            .forEach(System.out::println);
     }
 
-//    private static <T extends Virus> void sortirajViruseIIspisi(T virus) {
-//
-//    }
 
     /**
      * Ispisuje županiju sa najvećim postotkom zaraženih
