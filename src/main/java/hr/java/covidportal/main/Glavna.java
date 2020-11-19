@@ -2,6 +2,7 @@ package main.java.hr.java.covidportal.main;
 
 import main.java.hr.java.covidportal.enumeracija.VrijednostSimptoma;
 import main.java.hr.java.covidportal.genericsi.KlinikaZaInfektivneBolesti;
+import main.java.hr.java.covidportal.genericsi.Persone;
 import main.java.hr.java.covidportal.iznimke.BolestIstihSimptoma;
 import main.java.hr.java.covidportal.iznimke.DuplikatKontaktiraneOsobe;
 import main.java.hr.java.covidportal.model.*;
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -44,6 +46,9 @@ public class Glavna {
         Set<Bolest> bolesti = new HashSet<>();
         List<Osoba> osobe = new ArrayList<>();
         Map<Bolest, List<Osoba>> osobeZarazeneVirusima = new HashMap<>();
+
+//        System.out.println("asdr".matches("/^a.*r$/igm"));
+
 
         // Unos Zupanija
 
@@ -114,7 +119,6 @@ public class Glavna {
 
     private static void izvedbaPetogLabosa(Set<Bolest> bolesti, List<Osoba> osobe, Scanner sc) {
         KlinikaZaInfektivneBolesti<Virus, Osoba> klinika;
-        // Zadatak 2 - instanciranje klinike
 
         klinika = new KlinikaZaInfektivneBolesti(
         bolesti
@@ -126,8 +130,6 @@ public class Glavna {
             .filter(el -> el.getZarazenBolescu() instanceof Virus)
             .collect(Collectors.toList())
         );
-
-        // Zadatak 3
 
         // Sa lambda izrazima
 
@@ -147,8 +149,6 @@ public class Glavna {
                 .map(e -> e.getNaziv())
                 .forEach(System.out::println);
 
-        // Zadatak 4
-
         List<Virus> sortiraniVirusi2 = new ArrayList<>(klinika.getUneseniVirusi());
 
         // Lista bez lambda izraza ?
@@ -167,8 +167,6 @@ public class Glavna {
                 + " milisekundi, a bez lambdi traje "
                 + Duration.between(start2,end2)
                 + " milisekundi");
-
-        // Zadatak 5
 
         System.out.print("Unesite string za pretragu po prezimenu: ");
 
@@ -208,12 +206,52 @@ public class Glavna {
 
 //        nekaOsoba.stream().map(el->el.getIme()).forEach(System.out::println);
 
-        // Zadatak 6
 
         bolesti
             .stream()
             .map(el->el.getNaziv() + " ima " + el.getSimptomi().size() + " simptoma")
             .forEach(System.out::println);
+
+        // 1. Zadatak na vjezbi
+
+        System.out.println("1. Zadatak na vjezbi");
+
+        osobe.stream()
+                .filter(o->Pattern.compile("^a.*r$").matcher(o.getIme().toLowerCase()).find())
+                .sorted(Comparator.comparing(Osoba::getIme))
+                .map(Osoba::toString).forEach(System.out::println);
+
+        // 2. Zadatak na vjezbi
+
+        System.out.println("2. Zadatak na vjezbi");
+
+        System.out.println(osobe.stream()
+                .mapToInt(o -> o.getPrezime().length())
+                .reduce(0, (acc, el) -> acc + el));
+
+        System.out.println(osobe.stream()
+                .mapToDouble(o -> o.getPrezime().length())
+                .average()
+                .getAsDouble());
+
+
+        System.out.println(osobe.stream()
+                .min(Comparator.comparingInt(o -> o.getPrezime().length())).get().getPrezime());
+
+        System.out.println(osobe.stream()
+                .max(Comparator.comparingInt(o -> o.getPrezime().length())).get().getPrezime());
+
+        // 3. Zadatak na vjezbi
+
+        Persone<Osoba> mojaPersona = new Persone(new ArrayList<>(osobe));
+
+        System.out.println("3. zadatak na vjezbi");
+
+        mojaPersona
+                .getOsobe()
+                .stream()
+                .forEach(System.out::println);
+
     }
 
 
