@@ -138,6 +138,8 @@ public class Glavna {
 //                )
 //                .collect(Collectors.toList());
 
+        // Zadatak 4
+
         List<Virus> sortiraniVirusi2 = klinika.getUneseniVirusi().stream().collect(Collectors.toList());
 
         // Lista bez lambda izraza ?
@@ -151,6 +153,17 @@ public class Glavna {
         });
         Instant end2 = Instant.now();
 
+        // Zadatak 5
+
+        String nekoPrezime = "ić";
+
+        Optional<List<Osoba>> testOsoba = Optional.of(osobe.stream().filter(el->el.getPrezime().contains(nekoPrezime)).collect(Collectors.toList()));
+
+        // Zadatak 6
+
+
+
+
 //        sortiraniVirusi1.stream().forEach(System.out::println);
 //        sortiraniVirusi2.stream().forEach(System.out::println);
 
@@ -161,11 +174,6 @@ public class Glavna {
 //                .stream()
 //                .sorted((el1, el2) -> el2.getNaziv().compareTo(el1.getNaziv()))
 //                .forEach(System.out::println);
-
-
-
-        // Zadatak 4
-
 
 
 
