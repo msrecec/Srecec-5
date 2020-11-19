@@ -44,16 +44,6 @@ public class Glavna {
         Set<Bolest> bolesti = new HashSet<>();
         List<Osoba> osobe = new ArrayList<>();
         Map<Bolest, List<Osoba>> osobeZarazeneVirusima = new HashMap<>();
-        KlinikaZaInfektivneBolesti<Virus, Osoba> klinika;
-
-        Optional.ofNullable(null).ifPresentOrElse((el) -> System.out.println("Lista" + el + "nije prazna"), () -> System.out.println("Lista je prazna"));
-
-        Optional<String> a = Optional.of("a");
-        System.out.println(a.get());
-        Optional emptyOptional= Optional.empty();
-        System.out.println(emptyOptional);
-        Optional alsoEmpty= Optional.ofNullable(null);
-        System.out.println(alsoEmpty);
 
         // Unos Zupanija
 
@@ -128,18 +118,16 @@ public class Glavna {
 
         klinika = new KlinikaZaInfektivneBolesti(
         bolesti
-                .stream()
-                .filter(el -> el instanceof Virus)
-                .collect(Collectors.toList()),
+            .stream()
+            .filter(el -> el instanceof Virus)
+            .collect(Collectors.toList()),
         osobe
             .stream()
             .filter(el -> el.getZarazenBolescu() instanceof Virus)
             .collect(Collectors.toList())
         );
 
-
         // Zadatak 3
-
 
         // Sa lambda izrazima
 
