@@ -99,7 +99,7 @@ public class Glavna {
 
         // Izvedba pete laboratorijske vjezbe
 
-        izvedbaPetogLabosa(bolesti, osobe);
+        izvedbaPetogLabosa(bolesti, osobe, input);
 
     }
 
@@ -112,7 +112,7 @@ public class Glavna {
      * @param osobe uneseni ljudi oboljeli od bolesti
      */
 
-    private static void izvedbaPetogLabosa(Set<Bolest> bolesti, List<Osoba> osobe) {
+    private static void izvedbaPetogLabosa(Set<Bolest> bolesti, List<Osoba> osobe, Scanner sc) {
         KlinikaZaInfektivneBolesti<Virus, Osoba> klinika;
         // Zadatak 2 - instanciranje klinike
 
@@ -135,9 +135,17 @@ public class Glavna {
         List<Virus> sortiraniVirusi1 = klinika
             .getUneseniVirusi()
             .stream()
-            .sorted(Comparator.comparing(Virus::getNaziv).reversed())
+//            .sorted(Comparator.comparing(Virus::getNaziv).reversed()) // ovo je kao "lijepa lambda" ali nije isti algoritam kao i u trećem zadatku jer radimo reverse i sort posebno
+            .sorted((e1,e2)->e2.getNaziv().compareTo(e1.getNaziv())) // ima vise smisla jer radimo samo compare između drugog i prvog koji daje obrnut poredak
             .collect(Collectors.toList());
         Instant end1 = Instant.now();
+
+        System.out.println("Virusi sortirani po nazivu suprotno od poretka abecede: ");
+
+        sortiraniVirusi1
+                .stream()
+                .map(e -> e.getNaziv())
+                .forEach(System.out::println);
 
         // Zadatak 4
 
@@ -154,7 +162,7 @@ public class Glavna {
         });
         Instant end2 = Instant.now();
 
-        System.out.println("Sortiranje objekata koristenjem lambdi traje "
+        System.out.println("Sortiranje objekata korištenjem lambdi traje "
                 + Duration.between(start1,end1)
                 + " milisekundi, a bez lambdi traje "
                 + Duration.between(start2,end2)
@@ -162,9 +170,11 @@ public class Glavna {
 
         // Zadatak 5
 
-        String nekoPrezime = "ić";
+        System.out.print("Unesite string za pretragu po prezimenu: ");
 
-        System.out.println("Osobe cije prezime sadrzi \"" + nekoPrezime + "\" su slijedece: ");
+        String nekoPrezime = sc.nextLine();
+
+        System.out.println("Osobe čije prezime sadrži \"" + nekoPrezime + "\" su slijedeće: ");
 
         // Full hacky sa ovim ternarnim operatorom no nakon diskusije sa kolegama uistinu ne znam kako drugacije, jer lista i da je prazna nikako nece biti null vrijednost
         // tako da sam namjerno isforsirao null da se mogu posluziti sa ifPresentOrElse metodom od Optional klase jer ovo je tehnicki lambda no full cudna lol :D
@@ -202,7 +212,7 @@ public class Glavna {
 
         bolesti
             .stream()
-            .map(el->el.getNaziv()+" broj simptoma: "+el.getSimptomi().size())
+            .map(el->el.getNaziv() + " ima " + el.getSimptomi().size() + " simptoma")
             .forEach(System.out::println);
     }
 
@@ -819,23 +829,10 @@ public class Glavna {
                                     }
                                 }
 
-                                // Provjera postojanosti Pronađenog Odabranog Simptoma u prethodno Odabranim Simptomima
+                                logger.info("Odabran je (broj) simptom is postojećih simptoma: " + Integer.toString(odabraniSimptom));
 
-                                if (odabraniSimptomi.size() > 0 && odabraniSimptomi.contains(pronadeniOdabraniSimptom)) {
+                                odabraniSimptomi.add(pronadeniOdabraniSimptom);
 
-                                    System.out.println("Odabrani Simptom je vec unesen! Molimo odaberite ponovno.");
-
-                                    logger.error("Odabran je Simptom koji je već unesen: " + Integer.toString(odabraniSimptom));
-
-                                    ispravanUnos = false;
-                                }
-
-                                if (ispravanUnos) {
-
-                                    logger.info("Odabran je (broj) simptom is postojećih simptoma: " + Integer.toString(odabraniSimptom));
-
-                                    odabraniSimptomi.add(pronadeniOdabraniSimptom);
-                                }
                             }
                         } catch (InputMismatchException ex) {
 
